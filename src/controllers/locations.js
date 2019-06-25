@@ -49,6 +49,12 @@ class LocationControllers {
             error: err.sqlMessage
           });
       }
+      if(result.length === 0) {
+        return res.status(404)
+          .json({
+            msg: 'no such location exists 😒'
+          })
+      }
       return res.status(200)
         .json({
           msg: 'location found',
@@ -64,6 +70,24 @@ class LocationControllers {
     femalePopulation = parseInt(femalePopulation);
     let totalPopulation = malePopulation + femalePopulation;
 
+    // check if location exists
+    let confirmationQuery = `SELECT * FROM Locations WHERE Name = '${locationName}';`;
+    dbClient.query(confirmationQuery, (err, result)=> {
+      if(err) {
+        res.status(501)
+          .json({
+            msg: 'internal server error',
+            error: err.sqlMessage
+          })
+      }
+      if (result.length > 0) {
+        return res.status(403)
+          .json({
+            msg: "this location already exists"
+          })
+      }
+    });
+  
     let sqlQuery = `INSERT INTO Locations 
     (Name) VALUE ('${locationName}');`
 
