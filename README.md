@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/OlatunjiYso/population-management-api.svg?branch=develop)](https://travis-ci.org/OlatunjiYso/population-management-api)
 <a href="https://codeclimate.com/github/OlatunjiYso/population-management-api/maintainability"><img src="https://api.codeclimate.com/v1/badges/2e0ba303c89b989631ee/maintainability" /></a>
+<a href="https://codeclimate.com/github/OlatunjiYso/population-management-api/test_coverage"><img src="https://api.codeclimate.com/v1/badges/2e0ba303c89b989631ee/test_coverage" /></a>
 
 
 
