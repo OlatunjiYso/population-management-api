@@ -8,7 +8,7 @@ import populationMigrations from './populations';
 export const runMigrations = () => {
   locationsMigrations.createLocationsTable();
   populationMigrations.createPopulationsTable();
-  setTimeout(()=>{process.exit()}, 300);
+  setTimeout(()=>{process.exit()}, 600);
 }
 
 
