@@ -11,6 +11,7 @@ import populationMigrations from './populations';
 export const dropMigrations = () => {
   populationMigrations.dropPopulationsTable();
   locationsMigrations.dropLocationsTable();
+  setTimeout(()=>{process.exit()}, 300);
 }
 
 
