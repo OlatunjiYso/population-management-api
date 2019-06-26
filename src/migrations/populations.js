@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import db from '../models/index';
 
 const dbClient = db.client;
@@ -8,6 +9,7 @@ const createPopulationsTable = () => {
     LocationID int NOT NULL,
     FemalePopulation int NOT NULL,
     MalePopulation int NOT NULL,
+    TotalPopulation int NOT NULL,
     UNIQUE (ID),
     PRIMARY KEY (ID),
     FOREIGN KEY (LocationID) REFERENCES Locations(LocationID)

@@ -7,9 +7,10 @@
     "build": "babel src -d dist",
     "start": "nodemon --exec babel-node src/index.js",
     "prod-start": "npm run build && node dist/index.js",
-    "test": "mocha --require @babel/register",
     "runMigrations": "npm run build && node dist/migrations/migrations-up.js",
-    "undoMigrations": "npm run build && node dist/migrations/migrations-down.js"
+    "undoMigrations": "npm run build && node dist/migrations/migrations-down.js",
+    "test": "NODE_ENV=test  mocha --require @babel/register"
+    
   },
   "author": "Olatunji Yusuf",
   "license": "ISC",
@@ -20,7 +21,9 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/register": "^7.4.4",
     "mocha": "^6.1.4",
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.1",
+    "should": "^13.2.3",
+    "supertest": "^4.0.2"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

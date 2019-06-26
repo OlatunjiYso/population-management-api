@@ -19,3 +19,8 @@ app.use('/api/v1/locations/', locationHandler);
 app.listen(process.env.PORT || 3000, () =>
   console.log(`Example app listening on port ${process.env.PORT || 3000}`),
 );
+
+
+
+
+export default app;

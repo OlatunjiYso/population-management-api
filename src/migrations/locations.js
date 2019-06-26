@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import db from '../models/index';
 
 const dbClient = db.client;
