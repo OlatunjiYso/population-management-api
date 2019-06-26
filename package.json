@@ -9,7 +9,7 @@
     "prod-start": "npm run build && node dist/index.js",
     "runMigrations": "npm run build && node dist/migrations/migrations-up.js",
     "undoMigrations": "npm run build && node dist/migrations/migrations-down.js",
-    "test": "NODE_ENV=test  mocha --require @babel/register"
+    "test": "mocha --require @babel/register"
     
   },
   "author": "Olatunji Yusuf",
