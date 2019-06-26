@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "8"
+services:
+  - mysql
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS travis_db;'
+addons:
+    code_climate:
+        repo_token:
+           secure: "K2MCB0YTtL7hqP5GRrUoU5pN+0ABht0Q4U3d50W0ZF1aiT7CHGFoBUID3ikOvymTNjSfGZg/gSOxqWPivvKWtfLkCgb1kouwDXkR9xM19wMVH9VdUHHg9zavx2IbA/erk5qnerEWjjgFIhrurVS89PYop6Du8Q3PeOmGDWkqf6ElgmD9LmMN9yiMJoedv0BxbcjqhYLdPyNk1ExjIUrlH9+DoZDvFDWjSuKwdRQMZnymEP5DQgV6WlouhbK8dFIQWSLeyJgRk+S72DCoYKDIpFkl1AAyBQi2qIoWa3kYQkzDNHG3cTk3m5mbiRSDVBTZwZm2ivCIuNLYyBxaAIdp38UKil/FhLfHWFkQSDCi0RB79sf/BhqDndv1fEC4keOkr2tCmRqEdx/obzrGYLH8W0WkM0Jf5NLInCC34s6C7/nNuEMFT36U8gGUTGvNSgmKM0i9HAe9m+0I2lOIJzlklFIFxUR1Y4dK++4ux7l8rQh0Gv/xEd5mN7M36/7Q5oM0rVipIlPcHuVzazBpEUpOhG9UFTYRMaGSBsJzvvzXyKbBnKC0lpHP8OPIun23L9dPjJ6ikhG1LwK+8/C/eEA66XXZNRyaTMeV4ZhVwqHKNV2dugL5l5Oze2QkSvyEs+tJ0aLqhjC+shm6AX9mgSPcwoRMjehIlj23viwEwS7GU7k="
+
+script: npm run test
+before_script:
+  - npm install codeclimate-test-reporter nyc -g
+  - npm run runMigrations
+after_script:
+  - codeclimate-test-reporter < ./coverage/lcov.info
