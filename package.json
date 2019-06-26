@@ -9,7 +9,7 @@
     "prod-start": "npm run build && node dist/index.js",
     "runMigrations": "npm run build && node dist/migrations/migrations-up.js",
     "undoMigrations": "npm run build && node dist/migrations/migrations-down.js",
-    "test": "nyc --reporter=lcov  --reporter=text mocha --require @babel/register",
+    "test": "nyc --reporter=lcov  --reporter=text --reporter=lcov mocha --require @babel/register --exit",
     "codeclimate-report": "codeclimate-test-reporter < ./coverage/lcov.info"
   },
   "author": "Olatunji Yusuf",
